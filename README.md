@@ -2,18 +2,18 @@
 
 **Tu red: diseñada para funcionar, asegurada para durar.**
 
-HH sec+ ofrece soluciones de infraestructura tecnológica y ciberseguridad para pequeñas y medianas empresas en Chile. Nuestro enfoque integra diseño, implementación, optimización y protección de redes y sistemas, con soluciones adaptadas a las necesidades de cada organización.
+HH sec+ ofrece ingeniería de redes, infraestructura TI y ciberseguridad para empresas en Chile. Diseñamos e implementamos soluciones a la medida de cada organización, desde una oficina hasta empresas con múltiples sedes, de acuerdo con su escala, complejidad y presupuesto.
 
 ## Nuestros servicios
 
-### Arquitectura y conectividad
-Diseño e implementación de redes LAN/WAN, configuración de infraestructura, segmentación, conectividad inalámbrica y estrategias de continuidad operativa.
+### Ingeniería y arquitectura de redes
+Diseño e implementación de redes LAN/WAN, conectividad entre sedes, segmentación, conectividad inalámbrica, redundancia y alta disponibilidad.
 
-### Ciberseguridad
-Evaluación de vulnerabilidades, seguridad de aplicaciones, endurecimiento de servidores y revisión de controles de seguridad.
+### Ingeniería de ciberseguridad
+Diseño y evaluación de controles, protección perimetral, análisis de vulnerabilidades, seguridad de aplicaciones y endurecimiento de infraestructura.
 
-### Soporte y optimización TI
-Diagnóstico técnico, resolución de incidencias, optimización del rendimiento y mejora de infraestructura empresarial.
+### Consultoría y evolución de infraestructura
+Diagnóstico, planificación, optimización, soporte especializado y acompañamiento para la continuidad operativa y el crecimiento del negocio.
 
 ## Cómo trabajamos
 
