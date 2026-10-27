@@ -2,43 +2,40 @@
 
 **Tu red: diseñada para funcionar, asegurada para durar.**
 
-Sitio estático de presentación de servicios de **HH sec+**, consultoría de redes informáticas, ciberseguridad, infraestructura TI y optimización para PyMEs en Chile.
+Sitio corporativo de **HH sec+**, empresa de consultoría TI, redes informáticas, ciberseguridad e infraestructura para PyMEs en Chile.
 
-## Estructura
+## Sitio web
 
-- `index.html`: página principal, metadatos de SEO, Open Graph y JSON-LD.
-- `assets/styles.css`: diseño responsivo sin dependencia de frameworks.
-- `assets/favicon.svg` y `assets/social-card.svg`: recursos de identidad visual iniciales.
-- `linkedin/descripcion-exacta.txt`: descripción para Company Page, copiada literalmente del brief.
-- `linkedin/primer-post.md`: publicación de lanzamiento (2026).
-- `robots.txt`: indexación permitida.
-- `tests/check_site.py`: comprobaciones automáticas básicas.
+La página presenta los servicios de la empresa, su enfoque de trabajo y un formulario de contacto para nuevos clientes.
 
-## Pruebas locales
+## Archivos
 
-```sh
+- `index.html`: página principal y SEO.
+- `assets/styles.css`: diseño adaptable.
+- `assets/favicon.svg` y `assets/social-card.svg`: identidad visual.
+- `gracias.html`: confirmación posterior al formulario.
+- `robots.txt` y `sitemap.xml`: indexación.
+- `tests/check_site.py`: comprobaciones básicas.
+
+## Ejecutar localmente
+
+```bash
 python3 -m http.server 8000
-# abrir http://localhost:8000
 python3 tests/check_site.py
 ```
 
-## Publicación (GitHub Pages)
+Abrir `http://localhost:8000`.
 
-1. Repositorio creado: [`hu-herrera/HH-sec-`](https://github.com/hu-herrera/HH-sec-).
-2. Contenido publicado en la rama `main`.
-3. En [`Settings > Pages`](https://github.com/hu-herrera/HH-sec-/settings/pages), configurar `Deploy from a branch`, rama `main`, carpeta `/ (root)`.
-4. Una vez publicada la URL final, añadir URL absoluta en `og:image`, `canonical`, `sitemap.xml` y `url` del JSON-LD antes de dar de alta en Google Search Console.
-5. En LinkedIn Company Page, reemplazar el sitio web temporal (`cv-hh.pages.dev`) por la web HH sec+ cuando esté disponible.
+## Publicar en GitHub Pages
 
-## Reglas editoriales
+En [Settings > Pages](https://github.com/hu-herrera/HH-sec-/settings/pages), seleccionar **Deploy from a branch**, rama **main**, carpeta **/(root)**.
 
-- No publicar información interna de clientes, contraseñas, logs, diagramas privados o proyectos académicos aún no públicos.
-- No declarar certificaciones CCNA/CCNP oficiales sin contar con credenciales verificables. Los cursos aprobados son formación, no necesariamente certificaciones.
-- No implicar asociaciones comerciales con RH Rental o BlackShark Studios sin autorización. La experiencia vinculada al rubro industrial puede describirse sin sugerir respaldo institucional.
-- Ningún cambio SEO garantiza el primer puesto en Google; verificar indexación con herramientas adecuadas.
+URL prevista: https://hu-herrera.github.io/HH-sec-/
 
-## Contacto
+## Formulario de contacto
 
-Correo: [hu.herrera@outlook.com](mailto:hu.herrera@outlook.com)
+El formulario usa [FormSubmit](https://formsubmit.co/) como receptor para una web estática. Las consultas se envían al correo de administración configurado en el formulario, sin mostrarlo en la interfaz del sitio.
 
-Perfil personal: [LinkedIn](https://www.linkedin.com/in/hugo-herrera-redes)
+**Activación inicial:** una primera prueba de envío genera un correo de confirmación de FormSubmit. Es necesario confirmar ese mensaje para habilitar las notificaciones. Después, comprobar que llega correctamente una consulta de prueba. El contenido del formulario es procesado por ese proveedor externo.
+
+Si se migra el sitio a otro hosting o dominio, actualizar la ruta de confirmación `_next` y las URLs de SEO.
