@@ -26,7 +26,7 @@ class Parser(HTMLParser):
         if tag == "a" and attrs.get("href", "").startswith("#"):
             self.refs.append(attrs["href"][1:])
         if tag == "link" and attrs.get("href") and not attrs["href"].startswith("http"):
-            self.local_files.append(attrs["href"])
+            self.local_files.append(attrs["href"].split("?", 1)[0])
         if tag == "form": self.forms.append(attrs)
         if tag in ("input", "textarea"): self.fields.append(attrs)
 
