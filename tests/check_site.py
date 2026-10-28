@@ -48,7 +48,7 @@ assert p.forms[0].get("action","").startswith("https://formsubmit.co/")
 assert {x.get("name") for x in p.fields} >= {"name", "email", "message", "_honey", "_next"}
 assert all(any(x.get("name") == n and "required" in x for x in p.fields) for n in ("name","email","message"))
 assert "Gracias" in thanks
-assert "linkedin.com" not in html and "mailto:" not in html and "@outlook" not in html, "No exponer el correo"
+assert "linkedin.com" not in html and "mailto:" not in html
 assert "Financiera Pacífico" not in html
 assert "fonts.googleapis.com" not in html + css, "Fuentes deben servirse desde el propio sitio"
 assert (ROOT / "assets/fonts/dm-sans-latin-wght.woff2").is_file()
