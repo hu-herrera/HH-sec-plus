@@ -7,6 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 html = (ROOT / "index.html").read_text(encoding="utf-8")
 css = (ROOT / "assets/styles.css").read_text(encoding="utf-8")
 thanks = (ROOT / "gracias.html").read_text(encoding="utf-8")
+privacy = (ROOT / "privacidad.html").read_text(encoding="utf-8")
 
 class Parser(HTMLParser):
     def __init__(self):
@@ -47,6 +48,11 @@ assert p.forms[0].get("action","").startswith("https://formsubmit.co/")
 assert {x.get("name") for x in p.fields} >= {"name", "email", "message", "_honey", "_next"}
 assert all(any(x.get("name") == n and "required" in x for x in p.fields) for n in ("name","email","message"))
 assert "Gracias" in thanks
-assert "linkedin.com" not in html and "mailto:" not in html
+assert "linkedin.com" not in html and "mailto:" not in html and "@outlook" not in html, "No exponer el correo"
 assert "Financiera Pacífico" not in html
-print("OK: estructura, SEO, enlaces, formulario y páginas asociadas.")
+assert "fonts.googleapis.com" not in html + css, "Fuentes deben servirse desde el propio sitio"
+assert (ROOT / "assets/fonts/dm-sans-latin-wght.woff2").is_file()
+assert 'href="privacidad.html"' in html and "FormSubmit" in privacy
+assert (ROOT / "404.html").is_file()
+assert "Content-Security-Policy" in (ROOT / ".htaccess").read_text() and "Content-Security-Policy" in (ROOT / "_headers").read_text()
+print("OK: estructura, SEO, enlaces, formulario, privacidad, fuentes locales y cabeceras.")
