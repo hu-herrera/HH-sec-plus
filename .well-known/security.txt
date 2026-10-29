@@ -1,0 +1,8 @@
+# Política de divulgación responsable de HH sec+
+# Si encontraste una vulnerabilidad en este sitio o en nuestros servicios,
+# escríbenos por el formulario de contacto o por WhatsApp. Respondemos en español o inglés.
+Contact: https://hu-herrera.github.io/HH-sec-plus/#contacto
+Contact: https://wa.me/56965801184
+Expires: 2027-04-30T00:00:00.000Z
+Preferred-Languages: es, en
+Canonical: https://hu-herrera.github.io/HH-sec-plus/.well-known/security.txt
