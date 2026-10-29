@@ -28,3 +28,4 @@
 .proof-badges{flex-wrap:nowrap;gap:10px}.proof-badges img{width:54px;height:54px}@media(max-width:1100px){.proof-badges{flex-wrap:wrap}}
 @media(max-width:640px){.proof-badges{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}.proof-badges img{width:100%;height:auto;aspect-ratio:1}}
 .team-grid{grid-template-columns:minmax(0,1fr)}.founder{max-width:760px}
+.svc-time{margin:10px 0 0;font-size:.85rem;font-weight:500;color:var(--accent)}.svc-detail strong{color:var(--ink);font-weight:500}
