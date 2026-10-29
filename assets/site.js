@@ -21,3 +21,10 @@ if (toggle && navigation) {
   });
   window.matchMedia('(min-width: 641px)').addEventListener('change', closeMenu);
 }
+
+const message = document.querySelector('#contacto-mensaje');
+document.querySelectorAll('a[data-servicio]').forEach(link => {
+  link.addEventListener('click', () => {
+    if (message && !message.value.trim()) message.value = `Me interesa: ${link.dataset.servicio}.\n\n`;
+  });
+});

@@ -19,3 +19,5 @@
 @media(max-width:800px){.team{grid-template-columns:1fr;margin-top:38px}}@media(max-width:640px){.founder-card,.team-areas{padding:24px}.badges{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.badges img{width:80px;height:80px}}
 .team-areas>h3{margin:0}
 .contact-direct{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:18px}
+.offers{border-top:1px solid var(--line)}.offer-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.offer-card ul{margin:0 0 18px;padding-left:18px;display:grid;gap:6px;font-size:.92rem;color:var(--muted)}.offer-card>p.offer-for{flex:none;margin-bottom:14px;color:var(--ink)}.offer-card>p.offer-out{flex:1;font-size:.9rem}@media(max-width:800px){.offer-grid{grid-template-columns:1fr}}
+.team{align-items:start}
