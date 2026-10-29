@@ -59,4 +59,11 @@ assert (ROOT / "assets/fonts/dm-sans-latin-wght.woff2").is_file()
 assert 'href="privacidad.html"' in html and "FormSubmit" in privacy
 assert (ROOT / "404.html").is_file()
 assert "Content-Security-Policy" in (ROOT / ".htaccess").read_text() and "Content-Security-Policy" in (ROOT / "_headers").read_text()
-print("OK: estructura, SEO, enlaces, formulario, privacidad, fuentes locales y cabeceras.")
+terms = (ROOT / "condiciones.html").read_text(encoding="utf-8")
+assert 'href="condiciones.html"' in html and 'href="condiciones.html"' in privacy, "Enlazar las condiciones de servicio"
+assert "autorización escrita" in terms and "condiciones.html" in (ROOT / "sitemap.xml").read_text()
+ld = re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S)
+assert {json.loads(x)["@type"] for x in ld} == {"ProfessionalService", "FAQPage"}, "JSON-LD válido de empresa y preguntas"
+faq_ld = next(json.loads(x) for x in ld if '"FAQPage"' in x)
+assert len(faq_ld["mainEntity"]) == html.count('class="faq-item"'), "Preguntas del JSON-LD y del HTML deben coincidir"
+print("OK: estructura, SEO, enlaces, formulario, privacidad, condiciones, fuentes locales y cabeceras.")
