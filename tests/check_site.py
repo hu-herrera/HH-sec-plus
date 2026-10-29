@@ -28,6 +28,9 @@ class Parser(HTMLParser):
             self.refs.append(attrs["href"][1:])
         if tag == "link" and attrs.get("href") and not attrs["href"].startswith("http"):
             self.local_files.append(attrs["href"].split("?", 1)[0])
+        if tag == "img":
+            assert not attrs.get("src", "").startswith(("http", "//")), "Imágenes servidas desde el propio sitio (CSP img-src 'self')"
+            self.local_files.append(attrs["src"].split("?", 1)[0])
         if tag == "form": self.forms.append(attrs)
         if tag in ("input", "textarea"): self.fields.append(attrs)
 
@@ -50,9 +53,17 @@ assert all(any(x.get("name") == n and "required" in x for x in p.fields) for n i
 assert "Gracias" in thanks
 assert "linkedin.com" not in html and "mailto:" not in html and "@outlook" not in html, "No exponer el correo"
 assert "Financiera Pacífico" not in html
+assert "credenciales" in p.ids
 assert "fonts.googleapis.com" not in html + css, "Fuentes deben servirse desde el propio sitio"
 assert (ROOT / "assets/fonts/dm-sans-latin-wght.woff2").is_file()
 assert 'href="privacidad.html"' in html and "FormSubmit" in privacy
 assert (ROOT / "404.html").is_file()
 assert "Content-Security-Policy" in (ROOT / ".htaccess").read_text() and "Content-Security-Policy" in (ROOT / "_headers").read_text()
-print("OK: estructura, SEO, enlaces, formulario, privacidad, fuentes locales y cabeceras.")
+terms = (ROOT / "condiciones.html").read_text(encoding="utf-8")
+assert 'href="condiciones.html"' in html and 'href="condiciones.html"' in privacy, "Enlazar las condiciones de servicio"
+assert "autorización escrita" in terms and "condiciones.html" in (ROOT / "sitemap.xml").read_text()
+ld = re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S)
+assert {json.loads(x)["@type"] for x in ld} == {"ProfessionalService", "FAQPage"}, "JSON-LD válido de empresa y preguntas"
+faq_ld = next(json.loads(x) for x in ld if '"FAQPage"' in x)
+assert len(faq_ld["mainEntity"]) == html.count('class="faq-item"'), "Preguntas del JSON-LD y del HTML deben coincidir"
+print("OK: estructura, SEO, enlaces, formulario, privacidad, condiciones, fuentes locales y cabeceras.")
