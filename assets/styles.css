@@ -21,3 +21,4 @@
 .contact-direct{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:18px}
 .offers{border-top:1px solid var(--line)}.offer-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.offer-card ul{margin:0 0 18px;padding-left:18px;display:grid;gap:6px;font-size:.92rem;color:var(--muted)}.offer-card>p.offer-for{flex:none;margin-bottom:14px;color:var(--ink)}.offer-card>p.offer-out{flex:1;font-size:.9rem}@media(max-width:800px){.offer-grid{grid-template-columns:1fr}}
 .team{align-items:start}
+.offer-card>p.offer-price{flex:none;margin:4px 0 0;font-size:.9rem;color:var(--muted)}.offer-price strong{font-size:1.25rem;color:var(--accent);font-weight:600}
